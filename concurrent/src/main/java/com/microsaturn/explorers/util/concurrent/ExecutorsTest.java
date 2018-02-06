@@ -85,8 +85,6 @@ public class ExecutorsTest {
 		service.execute(new MyRunnable());
 		service.execute(new MyRunnable());
 		service.execute(new MyRunnable());
-		service.execute(new MyRunnable());
-		service.execute(new MyRunnable());
 		
 		Thread.sleep(30000);
 		service.shutdown();
