@@ -290,6 +290,8 @@ public class ThreadPoolExecutorTest {
 		System.out.println("      pool size::" + executor.getPoolSize());
 		System.out.println("task queue size::" + executor.getQueue().size());// Always returns zero.
 		
+		Thread.sleep(5000);
+		
 		executor.execute(new MyRunnable());
 		//executor.execute(new MyRunnable());
 		System.out.println("=====================================================");

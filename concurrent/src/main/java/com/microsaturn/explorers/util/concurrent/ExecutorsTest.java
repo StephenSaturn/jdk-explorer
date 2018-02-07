@@ -93,8 +93,8 @@ public class ExecutorsTest {
 	public static void main(String[] args) throws InterruptedException {
 		//testFixedThreadPool();
 		
-		//testCachedThreadPool();
+		testCachedThreadPool();
 		
-		testSingleThread();
+		//testSingleThread();
 	}
 }
