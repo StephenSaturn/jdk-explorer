@@ -23,8 +23,8 @@ public class ScheduledThreadPoolExecutorTest {
 	 * public ScheduledFuture<?> schedule(Runnable command, long delay, TimeUnit unit)
 	 */
 	public static void testSchedule() {
-		scheduleThreadPoolExecutor.schedule(new TaskThread(), 5, TimeUnit.SECONDS);
-		scheduleThreadPoolExecutor.schedule(new TaskThread(), 5, TimeUnit.SECONDS);
+		scheduleThreadPoolExecutor.schedule(new TaskThread(), 1, TimeUnit.SECONDS);
+		scheduleThreadPoolExecutor.schedule(new TaskThread(), 1, TimeUnit.SECONDS);
 	}
 	
 	/**
@@ -72,6 +72,7 @@ public class ScheduledThreadPoolExecutorTest {
 	}
 	
 	private static void after() {
+		System.out.println("shutdown...");
 		sleep(TimeUnit.SECONDS, 150);
 		if(scheduleThreadPoolExecutor != null) {
 			scheduleThreadPoolExecutor.shutdown();
