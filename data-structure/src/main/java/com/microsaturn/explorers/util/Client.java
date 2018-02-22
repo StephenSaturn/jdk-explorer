@@ -33,11 +33,18 @@ public class Client {
 	
 	public static void main(String[] args) {
 		 ArrayList<String> arr = new ArrayList<String>();
-		 System.out.println(arr.size());
 		 arr.add("saturn");
-		 System.out.println(arr.size());
 		 arr.add("arnold");
 		 arr.add("oracle");
-		 System.out.println(arr.size());
+		 print(arr);
+		 arr.remove(1);
+		 System.out.println("\n");
+		 print(arr);
+	}
+	
+	public static void print(ArrayList temp) {
+		for(int i = 0; i < temp.size(); i++) {
+			System.out.print(temp.get(i) + " ");
+		}
 	}
 }

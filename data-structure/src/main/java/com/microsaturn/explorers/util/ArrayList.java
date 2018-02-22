@@ -45,4 +45,19 @@ public class ArrayList<E> {
 		elementData[index] = e;
 		size ++;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public E remove(int index) {
+		E temp = (E) elementData[index];
+		for(int i = index; i < size - 1; i++) {
+			elementData[index] = elementData[index + 1];
+		}
+		size --;
+		return temp;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public E get(int index) {
+		return (E) elementData[index];
+	}
 }
