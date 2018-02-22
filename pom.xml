@@ -54,5 +54,6 @@
 	<modules>
 		<module>concurrent</module>
 		<module>spi</module>
+		<module>data-structure</module>
 	</modules>
 </project>
