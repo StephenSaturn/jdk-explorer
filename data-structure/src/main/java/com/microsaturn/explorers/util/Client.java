@@ -23,7 +23,7 @@ public class Client {
 		Node<E> next;// 下一个节点
 	}
 	
-	// 伪双向链接
+	// 伪双向链表
 	class DoubleNode<E> {
 		E e;// 当前元素
 		

@@ -21,7 +21,7 @@ public class ArrayList<E> {
 		if(newCapacity < size) 
 			return;
 		Object[] newArr = new Object[newCapacity];
-		for(int i = 0; i < elementData.length; i++) {
+		for(int i = 0; i < size(); i++) {
 			newArr[i] = elementData[i];
 		}
 		this.elementData = newArr;
@@ -59,5 +59,25 @@ public class ArrayList<E> {
 	@SuppressWarnings("unchecked")
 	public E get(int index) {
 		return (E) elementData[index];
+	}
+	
+	@SuppressWarnings("unchecked")
+	public E set(int index, E element) {
+		E temp = (E) elementData[index];
+		elementData[index] = element;
+		return temp;
+	}
+	
+	public boolean isEmpty() {
+		return size() == 0;
+	}
+	
+	public void clear() {
+		size = 0;
+		ensureCapacity(DEFAULT_CAPACITY);
+	}
+	
+	public void trimToSize() {
+		ensureCapacity(size());
 	}
 }
