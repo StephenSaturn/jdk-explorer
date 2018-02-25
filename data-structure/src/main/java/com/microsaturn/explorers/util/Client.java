@@ -31,15 +31,231 @@ public class Client {
 		DoubleNode<E> next;// 下一个节点
 	}
 	
-	public static void main(String[] args) {
-		 ArrayList<String> arr = new ArrayList<String>();
-		 arr.add("saturn");
-		 arr.add("arnold");
-		 arr.add("oracle");
-		 print(arr);
-		 arr.remove(1);
-		 System.out.println("\n");
-		 print(arr);
+	static void testMyLinkedList() {
+		LinkedList<String> myLinkedList = new LinkedList<String>();
+		myLinkedList.add("saturn");
+		myLinkedList.add("arnold");
+		myLinkedList.add(0, "Jupiter");
+		System.out.println("MyLinkedList ==== size: " + myLinkedList.size());
+		
+		System.out.println("MyLinkedList ==== 1处原始数据:" + myLinkedList.set(1, "Apollo"));
+		System.out.println("MyLinkedList ==== 1处修改后的数据:" + myLinkedList.get(1));
+		
+		System.out.println("MyLinkedList ==== 1处原始数据:" + myLinkedList.remove(1));
+		System.out.println("MyLinkedList ==== size: " + myLinkedList.size());
+		
+		System.out.println("MyLinkedList ==== 0:" + myLinkedList.get(0));
+		System.out.println("MyLinkedList ==== 1:" + myLinkedList.get(1));
+		//System.out.println("MyLinkedList ==== 2:" + myLinkedList.get(2));
+	}
+	
+	static void testLinkedList() {
+		java.util.LinkedList<String> linkedList = new java.util.LinkedList<String>();
+		linkedList.add("saturn");
+		linkedList.add("arnold");
+		linkedList.add(0, "Jupiter");
+		System.out.println("LinkedList ==== size: " + linkedList.size());
+		System.out.println("LinkedList ==== 0:" + linkedList.get(0));
+		System.out.println("LinkedList ==== 1处原始数据:" + linkedList.set(1, "Apollo"));
+		System.out.println("LinkedList ==== 1处修改后的数据:" + linkedList.get(1));
+		
+		System.out.println("MyLinkedList ==== 1处原始数据:" + linkedList.remove(1));
+		System.out.println("MyLinkedList ==== size: " + linkedList.size());
+		
+		System.out.println("MyLinkedList ==== 0:" + linkedList.get(0));
+		System.out.println("MyLinkedList ==== 1:" + linkedList.get(1));
+		//System.out.println("MyLinkedList ==== 2:" + linkedList.get(2));
+	}
+	
+	static void testLinkedStack() {
+		LinkedStack<String> myStack = new LinkedStack<String>();
+		myStack.push("saturn");
+		myStack.push("arnold");
+		myStack.push("martian");
+		myStack.push("jupiter");
+		System.out.println("myStack ==== size:" + myStack.size());
+		System.out.println("myStack ==== 出栈：" + myStack.pop());
+		System.out.println("myStack ==== 出栈：" + myStack.pop());
+		System.out.println("myStack ==== 出栈：" + myStack.pop());
+		System.out.println("myStack ==== 出栈：" + myStack.pop());
+		System.out.println("myStack ==== size:" + myStack.size());
+	}
+	
+	static void testArrayStack() {
+		ArrayStack<String> myStack = new ArrayStack<String>();
+		myStack.push("saturn");
+		myStack.push("arnold");
+		myStack.push("martian");
+		myStack.push("jupiter");
+		myStack.push("Apollo");
+		
+		myStack.push("Diana");
+		myStack.push("Minerva");
+		myStack.push("Ceres");
+		myStack.push("Vulcanus");
+		myStack.push("Juno");
+		
+		System.out.println("myStack ==== 出栈：" + myStack.pop());
+		
+		myStack.push("Mercury");
+//		System.out.println("myStack ==== size:" + myStack.size());
+//		
+//		System.out.println("myStack ==== stack top:" + myStack.peek());
+//		System.out.println("myStack ==== 出栈：" + myStack.pop());
+//		
+//		System.out.println("myStack ==== stack top:" + myStack.peek());
+//		System.out.println("myStack ==== 出栈：" + myStack.pop());
+//		
+//		System.out.println("myStack ==== stack top:" + myStack.peek());
+//		System.out.println("myStack ==== 出栈：" + myStack.pop());
+//		
+//		System.out.println("myStack ==== stack top:" + myStack.peek());
+//		System.out.println("myStack ==== 出栈：" + myStack.pop());
+	}
+	
+	static void testArrayQueue() {
+		ArrayQueue<String> queue = new ArrayQueue<String>();
+//		queue.enqueue("saturn");
+//		queue.enqueue("arnold");
+//		queue.enqueue("martian");
+//		queue.enqueue("jupiter");
+		
+//		System.out.println("Queue ==== 出队数据:" + queue.dequeue());
+//		System.out.println("Queue ==== 出队数据:" + queue.dequeue());
+//		System.out.println("Queue ==== 出队数据:" + queue.dequeue());
+//		System.out.println("Queue ==== 出队数据:" + queue.dequeue());
+//		queue.enqueue("Apollo");
+//		queue.enqueue("Diana");
+//		queue.enqueue("Minerva");
+//		queue.enqueue("Ceres");
+//		queue.enqueue("Vulcanus");
+//		queue.enqueue("Juno");
+		
+//		System.out.println("Queue ==== 出队数据:" + queue.dequeue());
+//		System.out.println("Queue ==== 出队数据:" + queue.dequeue());
+//		
+//		queue.enqueue("Mercury");
+		
+		queue.enqueueWithCircular("saturn");
+		queue.enqueueWithCircular("arnold");
+		queue.enqueueWithCircular("martian");
+		queue.enqueueWithCircular("jupiter");
+		queue.enqueueWithCircular("Apollo");
+		queue.enqueueWithCircular("Diana");
+		queue.enqueueWithCircular("Minerva");
+		queue.enqueueWithCircular("Ceres");
+		queue.enqueueWithCircular("Vulcanus");
+		queue.enqueueWithCircular("Juno");
+		
+		System.out.println("Queue ==== 出队数据:" + queue.dequeueWithCircular());
+		System.out.println("Queue ==== 出队数据:" + queue.dequeueWithCircular());
+		System.out.println("Queue ==== 出队数据:" + queue.dequeueWithCircular());
+		System.out.println("Queue ==== 出队数据:" + queue.dequeueWithCircular());
+		System.out.println("Queue ==== 出队数据:" + queue.dequeueWithCircular());
+		System.out.println("Queue ==== 出队数据:" + queue.dequeueWithCircular());
+		System.out.println("Queue ==== 出队数据:" + queue.dequeueWithCircular());
+		System.out.println("Queue ==== 出队数据:" + queue.dequeueWithCircular());
+		System.out.println("Queue ==== 出队数据:" + queue.dequeueWithCircular());
+		System.out.println("Queue ==== 出队数据:" + queue.dequeueWithCircular());
+		
+		
+//		queue.enqueueWithCircular("Mercury");
+//		
+		System.out.println("Queue ==== size:" + queue.size());
+	}
+	
+	static void testLinkedQueue() {
+		LinkedQueue<String> queue = new LinkedQueue<String>();
+//		print("Linked Queue ==== empty queue:" + queue.dequeue());
+		
+//		print("Linked Queue ==== peek empty queue:" + queue.peek());
+		
+		queue.enqueue("saturn");
+//		print("Linked Queue ==== peek queue:" + queue.peek());
+		
+		queue.enqueue("arnold");
+		queue.enqueue("martian");
+		queue.enqueue("jupiter");
+		
+		print("Linked Queue ==== size:" + queue.size());
+		
+		print("Linekd Queue ==== 出队数据:" + queue.dequeue());
+		print("Linekd Queue ==== 出队数据:" + queue.dequeue());
+		print("Linekd Queue ==== 出队数据:" + queue.dequeue());
+		print("Linekd Queue ==== 出队数据:" + queue.dequeue());
+		
+//		queue.enqueue("Apollo");
+//		queue.enqueue("Diana");
+//		queue.enqueue("Minerva");
+//		queue.enqueue("Ceres");
+//		queue.enqueue("Vulcanus");
+//		queue.enqueue("Juno");
+		
+		print("Linked Queue ==== size:" + queue.size());
+	}
+	
+	/**
+	 * 测试JDK提供的基于双端链表实现的Dequeue
+	 */
+	static void testLinkedListWithDequeue() {
+		java.util.LinkedList<String> dequeue = new java.util.LinkedList<String>();
+//		print("JDK Dequeue base DLNode ==== size:" + dequeue.size());
+//		print("JDK Dequeue base DLNode ==== remove First:" + dequeue.removeFirst());
+		
+		dequeue.addFirst("saturn");
+		dequeue.addLast("arnold");
+		dequeue.addFirst("mars");
+		dequeue.addLast("Apollo");
+		print("JDK Dequeue base DLNode ==== size:" + dequeue.size());
+		print("JDK Dequeue base DLNode ==== remove First:" + dequeue.removeFirst());
+		print("JDK Dequeue base DLNode ==== remove Last:" + dequeue.removeLast());
+		print("JDK Dequeue base DLNode ==== size:" + dequeue.size());
+		
+//		print("JDK Dequeue base DLNode ==== get First:" + dequeue.getFirst());
+//		print("JDK Dequeue base DLNode ==== get Last:" + dequeue.getLast());
+	}
+	
+	static void testLinkedDequeue() {
+		LinkedDequeue<String> dequeue = new LinkedDequeue<String>();
+//		print("Mine Dequeue base DLNode ==== size:" + dequeue.size());
+//		print("Mine Dequeue base DLNode ==== remove First:" + dequeue.removeFirst());
+		
+		dequeue.addFirst("saturn");
+		dequeue.addLast("arnold");
+		dequeue.addFirst("mars");
+		dequeue.addLast("Apollo");
+		
+		print("Mine Dequeue base DLNode ==== size:" + dequeue.size());
+		print("Mine Dequeue base DLNode ==== remove First:" + dequeue.removeFirst());
+		print("Mine Dequeue base DLNode ==== remove Last:" + dequeue.removeLast());
+		print("Mine Dequeue base DLNode ==== size:" + dequeue.size());
+		
+		
+//		print("Mine Dequeue base DLNode ==== get First:" + dequeue.first());
+//		print("Mine Dequeue base DLNode ==== get Last:" + dequeue.last());
+	}
+	
+	public static void main(String[] args) throws InterruptedException {
+//		testLinkedStack();
+//		testArrayStack();
+		
+		testLinkedDequeue();
+		System.out.println("****************************");
+		Thread.sleep(3000);
+		testLinkedListWithDequeue();
+		
+//		testArrayQueue();
+//		testLinkedQueue();
+		
+//		testMyLinkedList();
+//		System.out.println("****************************");
+//		Thread.sleep(3000);
+//		testLinkedList();
+		//System.out.println(10 >> 1);
+	}
+	
+	static void print(Object o) {
+		System.out.println(o);
 	}
 	
 	public static void print(ArrayList temp) {

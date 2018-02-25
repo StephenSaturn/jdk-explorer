@@ -2,9 +2,9 @@ package com.microsaturn.explorers.util;
 
 /**
  * 线性列表
- * 
  * @author saturn
  *
+ * @param <E>
  */
 public class ArrayList<E> {
 
