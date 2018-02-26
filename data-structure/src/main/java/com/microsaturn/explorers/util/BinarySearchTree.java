@@ -1,6 +1,8 @@
 package com.microsaturn.explorers.util;
 
 /**
+ * 
+ * http://blog.csdn.net/javazejian/article/details/53727333
  * 二叉查找树
  * 设定:对于树中任一给定节点X， 
  * 		其左子树中的所有项的值均小于X中的值，
