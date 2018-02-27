@@ -24,25 +24,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		return str;
 	}
 	
-	/**
-	 * 先根次序遍历:preOrder traversal
-	 * 
-	 * @param subTree
-	 * @return
-	 */
-	private String preOrder(BinaryNode<T> subTree) {
-		StringBuffer sb = new StringBuffer();
-		if(subTree != null) {
-			// 先访问根节点
-			sb.append(subTree.data + ", ");
-			// 再遍历左子树
-			sb.append(preOrder(subTree.left));
-			// 最后遍历右子树
-			sb.append(preOrder(subTree.right));
-		}
-		return sb.toString();
-	}
-	
 	public boolean isEmpty() {
 		return root == null;
 	}
@@ -100,6 +81,25 @@ public class BinarySearchTree<T extends Comparable<T>> {
 			return 0;
 		}
 		return size(root);
+	}
+	
+	/**
+	 * 先根次序遍历:preOrder traversal
+	 * 
+	 * @param subTree
+	 * @return
+	 */
+	private String preOrder(BinaryNode<T> subTree) {
+		StringBuffer sb = new StringBuffer();
+		if(subTree != null) {
+			// 先访问根节点
+			sb.append(subTree.data + ", ");
+			// 再遍历左子树
+			sb.append(preOrder(subTree.left));
+			// 最后遍历右子树
+			sb.append(preOrder(subTree.right));
+		}
+		return sb.toString();
 	}
 	
 	private int size(BinaryNode<T> subTree) {
