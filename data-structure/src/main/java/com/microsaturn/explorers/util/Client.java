@@ -235,14 +235,41 @@ public class Client {
 //		print("Mine Dequeue base DLNode ==== get Last:" + dequeue.last());
 	}
 	
+	static void testBinarySearchTree() {
+		BinarySearchTree<Integer> binarySearchTree = new BinarySearchTree<>();
+		print("BinarySearchTree ==== size:" + binarySearchTree.size());
+		print("BinarySearchTree ==== height:" + binarySearchTree.height());// 0
+		binarySearchTree.insert(10);
+		print("BinarySearchTree ==== height:" + binarySearchTree.height());// 1
+		print("BinarySearchTree ==== size:" + binarySearchTree.size());
+		binarySearchTree.insert(12);
+		print("BinarySearchTree ==== size:" + binarySearchTree.size());
+		binarySearchTree.insert(7);
+		binarySearchTree.insert(15);
+		binarySearchTree.insert(16);
+		binarySearchTree.insert(17);
+		print("BinarySearchTree ==== traversal:" + binarySearchTree.preOrder());
+		print("BinarySearchTree ==== size:" + binarySearchTree.size());
+		print("BinarySearchTree ==== height:" + binarySearchTree.height());// 5
+		print("BinarySearchTree ==== minValue:" + binarySearchTree.findMin());// 7
+		print("BinarySearchTree ==== maxValue:" + binarySearchTree.findMax());// 17
+		binarySearchTree.remove(17);
+		binarySearchTree.remove(7);
+		print("BinarySearchTree ==== size:" + binarySearchTree.size());
+		print("BinarySearchTree ==== minValue:" + binarySearchTree.findMin());// 16
+		print("BinarySearchTree ==== maxValue:" + binarySearchTree.findMax());// 10
+	}
+	
 	public static void main(String[] args) throws InterruptedException {
 //		testLinkedStack();
 //		testArrayStack();
 		
-		testLinkedDequeue();
-		System.out.println("****************************");
-		Thread.sleep(3000);
-		testLinkedListWithDequeue();
+		testBinarySearchTree();
+		
+//		testLinkedDequeue();
+//		System.out.println("****************************");
+//		Thread.sleep(3000);
+//		testLinkedListWithDequeue();
 		
 //		testArrayQueue();
 //		testLinkedQueue();
