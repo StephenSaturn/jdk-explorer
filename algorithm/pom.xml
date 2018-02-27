@@ -10,6 +10,6 @@
 		<version>0.0.1</version>
 	</parent>
 	
-	<artifactId>data-structure</artifactId>
+	<artifactId>algorithm</artifactId>
 	<name>${project.articifactId}</name>
 </project>
