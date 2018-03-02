@@ -95,7 +95,7 @@ public class BasicSort {
 	}
 	
 	/**
-	 * 希尔排序 ShellSort:Wiki上面的代码
+	 * 希尔排序 ShellSort:from Wiki
 	 * @param arr
 	 */
 	static void shellSort(int[] arr) {
@@ -182,7 +182,7 @@ public class BasicSort {
 	}
 	
 	/**
-	 * 快速排序 QuickSort
+	 * 快速排序 QuickSort from Wiki
 	 * @param arr
 	 * @param head
 	 * @param tail
