@@ -25,7 +25,8 @@ public class BasicSort {
 //		selectionSort(arr);
 //		insertionSort(arr);
 //		shellSort(arr);
-		arr = mergeSort(arr);
+//		arr = mergeSort(arr);
+		quickSort(arr, 0, arr.length - 1);
 		long end = System.nanoTime();
 		System.out.println("Time::" + (end -start));
 		print("after sort:");
@@ -180,9 +181,36 @@ public class BasicSort {
 		return result;
 	}
 	
-	// 快速排序 QuickSort
-	static void quickSort(int[] arr) {
-		
+	/**
+	 * 快速排序 QuickSort
+	 * @param arr
+	 * @param head
+	 * @param tail
+	 */
+	static void quickSort(int[] arr, int head, int tail) {
+		if (head >= tail || arr == null || arr.length <= 1) {
+            return;
+        }
+        int i = head, j = tail, pivot = arr[(head + tail) / 2];
+        while (i <= j) {
+            while (arr[i] < pivot) {
+                ++i;
+            }
+            while (arr[j] > pivot) {
+                --j;
+            }
+            if (i < j) {
+                int t = arr[i];
+                arr[i] = arr[j];
+                arr[j] = t;
+                ++i;
+                --j;
+            } else if (i == j) {
+                ++i;
+            }
+        }
+        quickSort(arr, head, j);
+        quickSort(arr, i, tail);
 	}
 	
 	// 堆排序 HeapSort
