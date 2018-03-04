@@ -56,5 +56,6 @@
 		<module>spi</module>
 		<module>data-structure</module>
 		<module>algorithm</module>
+		<module>io</module>
 	</modules>
 </project>
