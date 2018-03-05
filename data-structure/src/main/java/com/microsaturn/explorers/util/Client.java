@@ -260,11 +260,36 @@ public class Client {
 		print("BinarySearchTree ==== maxValue:" + binarySearchTree.findMax());// 10
 	}
 	
+	@SuppressWarnings("unchecked")
+	static void testBinaryHeap() {
+		BinaryHeap heap = new BinaryHeap<>();
+		heap.insert(89);
+		heap.insert(60);
+		heap.insert(23);
+		heap.insert(12);
+		heap.insert(90);
+		heap.insert(100);
+		heap.insert(23);
+		heap.insert(78);
+		heap.insert(101);
+		heap.insert(802);
+		
+		System.out.println(heap.peek());
+		System.out.println(heap.deleteMin());
+		System.out.println(heap.peek());
+		
+//		heap.insert(103);
+//		heap.insert(1000);
+		
+	}
+	
 	public static void main(String[] args) throws InterruptedException {
 //		testLinkedStack();
 //		testArrayStack();
 		
-		testBinarySearchTree();
+		testBinaryHeap();
+		
+		//testBinarySearchTree();
 		
 //		testLinkedDequeue();
 //		System.out.println("****************************");
