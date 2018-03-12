@@ -26,10 +26,12 @@ public class ServerHandle implements Runnable {
 			serverSocketChannel = ServerSocketChannel.open();
 			// 如果为 true, 则此通道将被置于阻塞模式; 如果为 false, 则此通道将被置于非阻塞模式 
 			serverSocketChannel.configureBlocking(false);// 开启非阻塞模式
+			
 			// 绑定端口, backlog设为1024
 			serverSocketChannel.socket().bind(new InetSocketAddress(port),1024);
 			// 监听客户端连接请求
 			serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+			
 			// 标记服务器已开启
 			started = true;
 			System.out.println("Server already start. The port is " + port + ".");

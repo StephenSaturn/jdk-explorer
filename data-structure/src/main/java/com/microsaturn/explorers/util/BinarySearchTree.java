@@ -24,6 +24,31 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		return str;
 	}
 	
+	public String inOrder() {
+		String str = inOrder(root);
+		if(str.length() > 0) {
+			str = str.substring(0, str.length() - 1);
+		}
+		return str;
+	}
+	
+	public String postOrder() {
+		String str = postOrder(root);
+		if(str.length() > 0) {
+			str = str.substring(0, str.length() - 1);
+		}
+		return str;
+	}
+	
+	public String levelOrder() {
+		//String str = levelOrder(root);
+		String str = levelOrderTraverse();
+		if(str.length() > 0) {
+			str = str.substring(0, str.length() - 1);
+		}
+		return str;
+	}
+	
 	public boolean isEmpty() {
 		return root == null;
 	}
@@ -83,8 +108,29 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		return size(root);
 	}
 	
+	// 是否包含指定的值
+	public boolean contains(T t) {
+		if(t == null)
+			return false;
+		if(size() == 0)
+			return false;
+		BinaryNode<T> subTree = root;
+		while(subTree != null) {
+			int rest = t.compareTo(subTree.data);
+			if(rest == 0) {
+				return true;
+			} else if(rest > 0) {
+				subTree = subTree.right;
+			} else if(rest < 0) {
+				subTree = subTree.left;
+			}
+		}
+		return false;
+	}
+
+	
 	/**
-	 * 先根次序遍历:preOrder traversal
+	 * 先根次序遍历递归实现
 	 * 
 	 * @param subTree
 	 * @return
@@ -93,11 +139,101 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		StringBuffer sb = new StringBuffer();
 		if(subTree != null) {
 			// 先访问根节点
-			sb.append(subTree.data + ", ");
+			sb.append(subTree.data + ",");
 			// 再遍历左子树
 			sb.append(preOrder(subTree.left));
 			// 最后遍历右子树
 			sb.append(preOrder(subTree.right));
+		}
+		return sb.toString();
+	}
+	
+	/**
+	 * 中根次序遍历递归实现
+	 * @param subTree
+	 * @return
+	 */
+	private String inOrder(BinaryNode<T> subTree) {
+		StringBuffer sb = new StringBuffer();
+		if(subTree != null) {
+			// 先遍历左子树
+			sb.append(inOrder(subTree.left));
+			// 再访问根节点
+			sb.append(subTree.data + ",");
+			// 最后遍历右子树
+			sb.append(inOrder(subTree.right));
+		}
+		return sb.toString();
+	}
+	
+	/**
+	 * 后根次序遍历递归实现
+	 * @param subTree
+	 * @return
+	 */
+	private String postOrder(BinaryNode<T> subTree) {
+		StringBuffer sb = new StringBuffer();
+		if(subTree != null) {
+			// 先遍历左子树
+			sb.append(postOrder(subTree.left));
+			// 再遍历右子树
+			sb.append(postOrder(subTree.right));
+			// 最后是根节点
+			sb.append(subTree.data + ",");
+		}
+		return sb.toString();
+	}
+	
+	private LinkedQueue<BinaryNode<T>> queue = new LinkedQueue<>();
+	
+	/**
+	 * 层次遍历递归实现:同层顺序输出, 需要借助FIFO队列 
+	 * @param subTree
+	 * @return
+	 */
+	private String levelOrder(BinaryNode<T> subTree) {
+		StringBuffer sb = new StringBuffer();
+		if(subTree != null) {
+			sb.append(subTree.data + ",");
+			// 左孩子入队
+			if(subTree.left != null) {
+				queue.enqueue(subTree.left);
+			}
+			// 右孩子入队
+			if(subTree.right != null) {
+				queue.enqueue(subTree.right);
+			}
+			if(!queue.isEmpty()) {
+				sb.append(levelOrder(queue.dequeue()));
+			}
+		}
+		return sb.toString();
+	}
+	
+	/**
+	 * 层次遍历非递归实现
+	 * @return
+	 */
+	private String levelOrderTraverse() {
+		ArrayQueue<BinaryNode<T>> arrayQueue = new ArrayQueue<>();
+		BinaryNode<T> p = this.root;
+		StringBuffer sb = new StringBuffer();
+		while(p != null) {
+			sb.append(p.data + ",");
+			
+			if(p.left != null) {
+				arrayQueue.enqueue(p.left);
+			}
+			
+			if(p.right != null) {
+				arrayQueue.enqueue(p.right);
+			}
+			
+			if(arrayQueue.size() != 0) {
+				p = arrayQueue.dequeue();
+			} else {
+				p = null;
+			}
 		}
 		return sb.toString();
 	}

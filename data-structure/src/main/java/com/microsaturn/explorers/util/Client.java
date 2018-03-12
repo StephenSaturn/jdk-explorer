@@ -239,16 +239,32 @@ public class Client {
 		BinarySearchTree<Integer> binarySearchTree = new BinarySearchTree<>();
 		print("BinarySearchTree ==== size:" + binarySearchTree.size());
 		print("BinarySearchTree ==== height:" + binarySearchTree.height());// 0
-		binarySearchTree.insert(10);
+		binarySearchTree.insert(50);
 		print("BinarySearchTree ==== height:" + binarySearchTree.height());// 1
+		print("BinarySearchTree ==== size:" + binarySearchTree.size());// 1
+		binarySearchTree.insert(40);
 		print("BinarySearchTree ==== size:" + binarySearchTree.size());
-		binarySearchTree.insert(12);
-		print("BinarySearchTree ==== size:" + binarySearchTree.size());
-		binarySearchTree.insert(7);
-		binarySearchTree.insert(15);
-		binarySearchTree.insert(16);
-		binarySearchTree.insert(17);
-		print("BinarySearchTree ==== traversal:" + binarySearchTree.preOrder());
+		binarySearchTree.insert(60);
+		binarySearchTree.insert(38);
+		binarySearchTree.insert(49);
+		binarySearchTree.insert(59);
+		binarySearchTree.insert(62);
+		binarySearchTree.insert(32);
+		binarySearchTree.insert(39);
+		binarySearchTree.insert(48);
+		
+		print("BinarySearchTree ==== Contains 100:" + binarySearchTree.contains(100));
+		print("BinarySearchTree ==== Contains 49:" + binarySearchTree.contains(49));
+		print("BinarySearchTree ==== Contains 1:" + binarySearchTree.contains(1));
+		print("BinarySearchTree ==== Contains 60:" + binarySearchTree.contains(60));
+		print("BinarySearchTree ==== Contains 47:" + binarySearchTree.contains(47));
+		print("BinarySearchTree ==== Contains 40:" + binarySearchTree.contains(40));
+		
+		print("BinarySearchTree ==== pre Order traversal:" + binarySearchTree.preOrder());
+		print("BinarySearchTree ==== in Order traversal:" + binarySearchTree.inOrder());
+		print("BinarySearchTree ==== post Order traversal:" + binarySearchTree.postOrder());
+		print("BinarySearchTree ==== level Order traversal:" + binarySearchTree.levelOrder());
+		
 		print("BinarySearchTree ==== size:" + binarySearchTree.size());
 		print("BinarySearchTree ==== height:" + binarySearchTree.height());// 5
 		print("BinarySearchTree ==== minValue:" + binarySearchTree.findMin());// 7
@@ -287,9 +303,9 @@ public class Client {
 //		testLinkedStack();
 //		testArrayStack();
 		
-		testBinaryHeap();
+		//testBinaryHeap();
 		
-		//testBinarySearchTree();
+		testBinarySearchTree();
 		
 //		testLinkedDequeue();
 //		System.out.println("****************************");
