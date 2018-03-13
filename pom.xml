@@ -50,12 +50,13 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	
+
 	<modules>
 		<module>concurrent</module>
 		<module>spi</module>
 		<module>data-structure</module>
 		<module>algorithm</module>
 		<module>io</module>
+		<module>interview</module>
 	</modules>
 </project>
