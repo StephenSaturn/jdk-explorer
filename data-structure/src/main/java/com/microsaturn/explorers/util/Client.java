@@ -301,11 +301,11 @@ public class Client {
 	
 	public static void main(String[] args) throws InterruptedException {
 //		testLinkedStack();
-//		testArrayStack();
+		testArrayStack();
 		
 		//testBinaryHeap();
 		
-		testBinarySearchTree();
+		//testBinarySearchTree();
 		
 //		testLinkedDequeue();
 //		System.out.println("****************************");

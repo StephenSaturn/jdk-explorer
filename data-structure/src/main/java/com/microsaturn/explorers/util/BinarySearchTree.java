@@ -333,7 +333,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	 *
 	 * @param <T>
 	 */
-	private static class BinaryNode<T> {
+	static class BinaryNode<T> {
 		T data;
 		BinaryNode<T> left;
 		BinaryNode<T> right;

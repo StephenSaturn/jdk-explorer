@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class HashMapTest {
 	public static void main(String[] args) {
-		HashMap<String, Object> hashMap = new HashMap();
+		HashMap<String, Object> hashMap = new HashMap<>();
 		hashMap.put(null, "saturn");
 		
 		// HashMap至多允许存在一条key为null的记录, 重复put key为null的记录
