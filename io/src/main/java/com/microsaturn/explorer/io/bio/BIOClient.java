@@ -23,7 +23,7 @@ public class BIOClient {
 		try {
 			socket = new Socket(DEFAULT_SERVER_IP,port);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));  
-            out = new PrintWriter(socket.getOutputStream());
+            out = new PrintWriter(socket.getOutputStream(), true);
             out.println(expression);
             System.out.println("___结果为：" + in.readLine());  
 		} catch(Exception e) {
