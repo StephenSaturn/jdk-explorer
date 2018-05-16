@@ -49,8 +49,8 @@ public class ArrayList<E> {
 	@SuppressWarnings("unchecked")
 	public E remove(int index) {
 		E temp = (E) elementData[index];
-		for(int i = index; i < size - 1; i++) {
-			elementData[index] = elementData[index + 1];
+		for(int i = index; i < size; i++) {
+			elementData[i] = elementData[i + 1];
 		}
 		size --;
 		return temp;
