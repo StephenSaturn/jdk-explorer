@@ -57,7 +57,7 @@ public class HashMapTest {
 	
 	public static void main(String[] args) {
 		//test1();
-		//test2();
-		basicTest();
+		test2();
+		//basicTest();
 	}
 }
