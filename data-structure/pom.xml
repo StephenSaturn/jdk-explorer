@@ -11,6 +11,6 @@
 	</parent>
 	
 	<artifactId>data-structure</artifactId>
-	<name>${project.articifactId}</name>
+	<name>${project.artifactId}</name>
 	
 </project>

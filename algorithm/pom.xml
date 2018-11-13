@@ -11,5 +11,5 @@
 	</parent>
 	
 	<artifactId>algorithm</artifactId>
-	<name>${project.articifactId}</name>
+	<name>${project.artifactId}</name>
 </project>
