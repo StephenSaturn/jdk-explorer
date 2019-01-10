@@ -43,8 +43,9 @@ public class ArrayQueue<E> {
 	 * @return
 	 */
 	public boolean enqueueWithCircular(E e) {
-		if(currentSize >= maxSize)
+		if(currentSize >= maxSize) {
 			throw new RuntimeException("队列已满.");
+		}
 		elementData[rear] = e;
 		rear = (++rear) % maxSize;//*********
 		currentSize ++;
