@@ -24,9 +24,9 @@ public class BasicSort {
 //		bubbleSort(arr);
 //		selectionSort(arr);
 //		insertionSort(arr);
-//		shellSort(arr);
+		shellSort(arr);
 //		arr = mergeSort(arr);
-		quickSort(arr, 0, arr.length - 1);
+//		quickSort(arr, 0, arr.length - 1);
 		long end = System.nanoTime();
 		System.out.println("Time::" + (end -start));
 		print("after sort:");
@@ -60,7 +60,9 @@ public class BasicSort {
 	}
 	
 	/**
-	 * 选择排序:在未排序序列中找到最小（大）元素，存放到排序序列的起始位置,再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾
+	 * 选择排序:在未排序序列中找到最小（大）元素，
+     * 存放到排序序列的起始位置,再从剩余未排序元素中继续寻找最小（大）元素，
+     * 然后放到已排序序列的末尾
 	 * @param arr
 	 */
 	static void selectionSort(int[] arr) {
@@ -78,8 +80,11 @@ public class BasicSort {
 			}
 		}
 	}
-	
-	// 插入排序 InsertionSort
+
+    /**
+     * 插入排序 InsertionSort
+     * @param arr
+     */
 	static void insertionSort(int[] arr) {
 		for(int i = 1; i < arr.length; i++) {
 			int t = arr[i];
@@ -103,13 +108,14 @@ public class BasicSort {
 		int temp;
 		while (gap < len / 3)
 			gap = gap * 3 + 1; // <O(n^(3/2)) by Knuth,1973>: 1, 4, 13, 40, 121, ...
-		for (; gap > 0; gap /= 3)
-			for (i = gap; i < len; i++) {
-				temp = arr[i];
-				for (j = i - gap; j >= 0 && arr[j] > temp; j -= gap)
-					arr[j + gap] = arr[j];
-				arr[j + gap] = temp;
-			}
+		for (; gap > 0; gap /= 3) {
+            for (i = gap; i < len; i++) {
+                temp = arr[i];
+                for (j = i - gap; j >= 0 && arr[j] > temp; j -= gap)
+                    arr[j + gap] = arr[j];
+                arr[j + gap] = temp;
+            }
+        }
 	}
 	
 	static void shellSort(int[] arr, int n) {
@@ -123,8 +129,12 @@ public class BasicSort {
 				}
 			}
 	}
-	
-	// 归并排序 MergeSort
+
+    /**
+     * 归并排序 MergeSort
+     * @param arr
+     * @return
+     */
 	static int[] mergeSort(int[] arr) {
 		if(arr.length < 2) 
 			return arr;
@@ -172,7 +182,7 @@ public class BasicSort {
 		return ret;
 	}
 	
-	private static int[] slice(int arr[], int start, int end) {
+	private static int[] slice(int[] arr, int start, int end) {
 		int[] result = new int[end - start];
 		int t = 0;
 		for(int i = start; i < end; i++) { 
@@ -185,7 +195,8 @@ public class BasicSort {
 	 * 快速排序 QuickSort from Wiki
 	 * 1.在数据集之中, 选择一个元素作为"基准"(pivot).
 	 * 2.所有小于"基准"的元素, 都移到"基准"的左边;
-	 * 	  所有大于"基准"的元素, 都移到"基准"的右边.这个操作称为分区 (partition) 操作, 分区操作结束后, 基准元素所处的位置就是最终排序后它的位置.
+	 * 	  所有大于"基准"的元素, 都移到"基准"的右边.这个操作称为分区 (partition) 操作,
+     * 	  分区操作结束后, 基准元素所处的位置就是最终排序后它的位置.
 	 * 3.对"基准"左边和右边的两个子集, 不断重复第一步和第二步, 直到所有子集只剩下一个元素为止
 	 * @param arr
 	 * @param head
@@ -216,8 +227,11 @@ public class BasicSort {
         quickSort(arr, head, j);
         quickSort(arr, i, tail);
 	}
-	
-	// 堆排序 HeapSort
+
+    /**
+     * HeapSort(堆排序 )
+     * @param arr
+     */
 	static void heapSort(int[] arr) {
 		
 	}

@@ -19,16 +19,30 @@
 		<file_encoding>UTF-8</file_encoding>
 		<!-- Maven plugins -->
 		<maven_compiler_version>3.6.0</maven_compiler_version>
+        <!-- commons jar -->
+        <commons.lang.version>2.6</commons.lang.version>
 
 		<guava_version>24.0-jre</guava_version>
+
+        <disruptor_version>3.4.2</disruptor_version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons.lang.version}</version>
+            </dependency>
 			<dependency>
 				<groupId>com.google.guava</groupId>
 				<artifactId>guava</artifactId>
 				<version>${guava_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.lmax</groupId>
+				<artifactId>disruptor</artifactId>
+				<version>${disruptor_version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -58,5 +72,6 @@
 		<module>algorithm</module>
 		<module>io</module>
 		<module>interview</module>
-	</modules>
+        <module>api</module>
+    </modules>
 </project>

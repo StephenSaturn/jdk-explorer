@@ -18,8 +18,9 @@ public class ArrayList<E> {
 	}
 	
 	public void ensureCapacity(int newCapacity) {
-		if(newCapacity < size) 
-			return;
+		if(newCapacity < size) {
+            return;
+        }
 		Object[] newArr = new Object[newCapacity];
 		for(int i = 0; i < size(); i++) {
 			newArr[i] = elementData[i];
@@ -37,8 +38,9 @@ public class ArrayList<E> {
 	}
 
 	public void add(int index, E e) {
-		if(elementData.length == size()) 
+		if(elementData.length == size()) {
 			ensureCapacity(size() * 2 + 1);
+		}
 		for(int i = size; i > index; i--) {
 			elementData[i] = elementData[i - 1];
 		}

@@ -6,14 +6,19 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class ThreadPoolExecutorTest {
-	
-	/**
+
+    public static void main(String[] args) throws InterruptedException {
+        test1();
+    }
+
+    /**
 	 * 验证规则1：如果线程数量 <= 核心线程数量, 那么直接启动一个核心线程来执行任务, 不会放入队列中
 	 * @throws InterruptedException 
 	 */
 	public static void test1() throws InterruptedException {
 		// 核心线程数为6个, 最大线程数为10个, 非核心线程超时时间为5s, 任务队列为SynchronousQueue
-		ThreadPoolExecutor executor = new ThreadPoolExecutor(6, 10, 5, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
+		ThreadPoolExecutor executor = new ThreadPoolExecutor(6, 10, 5,
+				TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
 		
 		executor.execute(new MyRunnable());
 		executor.execute(new MyRunnable());
@@ -37,23 +42,6 @@ public class ThreadPoolExecutorTest {
 		System.out.println(" core pool size::" + executor.getCorePoolSize());
 		System.out.println("      pool size::" + executor.getPoolSize());
 		System.out.println("task queue size::" + executor.getQueue().size());
-		
-//		Thread.sleep(8000);
-//		System.out.println("----after 8 seconds, start 11 thread ----");
-//		executor.execute(new MyRunnable());
-//		executor.execute(new MyRunnable());
-//		executor.execute(new MyRunnable());
-//		executor.execute(new MyRunnable());
-//		executor.execute(new MyRunnable());
-//		executor.execute(new MyRunnable());
-//		executor.execute(new MyRunnable());
-//		executor.execute(new MyRunnable());
-//		executor.execute(new MyRunnable());
-//		executor.execute(new MyRunnable());
-//		executor.execute(new MyRunnable());
-//		System.out.println(" core pool size::" + executor.getCorePoolSize());
-//		System.out.println("      pool size::" + executor.getPoolSize());
-//		System.out.println("task queue size::" + executor.getQueue().size());
 		
 		Thread.sleep(10000);
 		executor.shutdown();
@@ -301,9 +289,5 @@ public class ThreadPoolExecutorTest {
 		
 		Thread.sleep(30000);
 		executor.shutdown();
-	}
-	
-	public static void main(String[] args) throws InterruptedException {
-		test6();
 	}
 }

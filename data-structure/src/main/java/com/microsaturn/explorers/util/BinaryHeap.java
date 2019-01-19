@@ -7,7 +7,7 @@ package com.microsaturn.explorers.util;
  */
 public class BinaryHeap<E extends Comparable<E>> {
 
-	private E arr[];
+    private E[] arr;
 	private int size;
 	
 	public BinaryHeap() {

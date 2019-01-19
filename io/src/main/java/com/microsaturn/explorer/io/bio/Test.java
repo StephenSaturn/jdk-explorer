@@ -23,7 +23,7 @@ public class Test {
         Thread.sleep(100);
         
         //运行客户端   
-        char operators[] = {'+','-','*','/'};  
+        char[] operators = {'+', '-', '*', '/'};
         Random random = new Random(System.currentTimeMillis());  
         new Thread(new Runnable() {  
             @SuppressWarnings("static-access")

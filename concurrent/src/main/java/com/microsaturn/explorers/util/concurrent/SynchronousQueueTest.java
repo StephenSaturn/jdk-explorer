@@ -1,8 +1,7 @@
 package com.microsaturn.explorers.util.concurrent;
 
 import java.util.Random;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * 
@@ -45,11 +44,11 @@ public class SynchronousQueueTest {
 	 * take和put是阻塞的获取和存储元素的方法, poll和offer是不阻塞的获取元素和存储元素的方法, 并且poll和offer可以指定超时时间.
 	 * take, poll和put, offer可以组合使用, 可以根据实际业务需求选择.
 	 */
-	
 	public static void test() throws InterruptedException {
 		Random random = new Random();
 		SynchronousQueue<String> sc = new SynchronousQueue<String>();
-		new Thread(() -> {
+        // TODO: 2018/11/19 显示的创建线程，不被允许，请使用线程池代替 
+        new Thread(() -> {
 			while(true) {
 				try {
 					String str = "test ---- " + random.nextInt(100);
@@ -68,8 +67,9 @@ public class SynchronousQueueTest {
 				}
 			}
 		}).start();
-		
-		new Thread(() -> {
+
+        // TODO: 2018/11/19 显示的创建线程，不被允许，请使用线程池代替 
+        new Thread(() -> {
 			while(true) {
 				try {
 					System.out.println("get data ::'" + sc.take() + "'.");
@@ -81,9 +81,19 @@ public class SynchronousQueueTest {
 		}).start();
 	}
 
+	public static void test1() {
+        ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("saturn-pool-%d").build();
+        ExecutorService singlethreadPool = new ThreadPoolExecutor(1, 1,
+                0L, TimeUnit.MILLISECONDS, new SynchronousQueue<Runnable>(), namedThreadFactory,
+                new ThreadPoolExecutor.AbortPolicy());
+        singlethreadPool.execute(() -> System.out.println(Thread.currentThread().getName()));
+        singlethreadPool.shutdown();
+    }
+
 	public static void main(String[] args) throws InterruptedException {
-		//getData();
-		//saveData();
+		// getData();
+		// saveData();
 		test();
+        // test1();
 	}
 }
