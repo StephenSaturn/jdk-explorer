@@ -23,20 +23,26 @@ public class BitOperate {
 
 	public static void main(String[] args) {
 		System.out.println(Integer.toBinaryString(15));
-		System.out.println(leftShift(10, 1));
-		System.out.println(leftShift(-10, 2));
+		System.out.println("***************** left shift test start *****************");
+		System.out.println(leftShift(5, 5));
+		System.out.println(leftShift(-20, 2));
 		System.out.println(rightShift(5, 2));
-		System.out.println("*****************");
-		System.out.println("Right shift:" + rightShift(5, 3));
-		System.out.println("Right shift:" + rightShift(-5, 3));
+		System.out.println("***************** end shift test start *****************");
+
+		System.out.println("***************** right shift start *****************");
+		System.out.println(rightShift(100, 3));
+		System.out.println(rightShift(-5, 3));
+
+		System.out.println("***************** right shift end ***************** ");
+
 		System.out.println("Unsigned Right shift:" + unsignedRightShift(-5, 3));
-		System.out.println("*****************");
 	}
 	
 	/**
 	 * left shift:左移(<<)
 	 * 左移count位后, 低位扑0(左为高位, 右为低位)
 	 * 丢高位, 低位补0
+	 * 相当于 (i * 2^count)
 	 * @param i 原始数据
 	 * @param count 左移多少位
 	 * @return
