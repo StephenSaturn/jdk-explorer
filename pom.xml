@@ -74,5 +74,6 @@
 		<module>interview</module>
         <module>api</module>
 		<module>java8</module>
-	</modules>
+        <module>basic</module>
+    </modules>
 </project>
