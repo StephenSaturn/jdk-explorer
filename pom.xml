@@ -70,7 +70,7 @@
 		<module>spi</module>
 		<module>data-structure</module>
 		<module>algorithm</module>
-		<module>io</module>
+		<module>net</module>
 		<module>interview</module>
         <module>api</module>
 		<module>java8</module>
